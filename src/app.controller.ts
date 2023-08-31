@@ -7,12 +7,12 @@ import {
   UseInterceptors,
   UsePipes,
 } from '@nestjs/common';
-import { AppService } from './app.service';
-import { ErrorInterceptor } from './app.error.interceptor';
-import { ValidationPipe } from './app.validation.pipe';
-import { loginSchema } from './validation/schemas/login.schema';
-import { ILoginDto } from './dto/login.dto';
-import { JoiValidationPipe } from './validation/joi.validation.pipe';
+import {AppService} from './app.service';
+import {ErrorInterceptor} from './app.error.interceptor';
+import {ValidationPipe} from './app.validation.pipe';
+import {loginSchema} from './validation/schemas/login.schema';
+import {ILoginDto} from './dto/login.dto';
+import {JoiValidationPipe} from './validation/joi.validation.pipe';
 
 @UseInterceptors(ErrorInterceptor)
 @Controller()
@@ -26,12 +26,11 @@ export class AppController {
     if (random > 0.5) {
       throw new Error('something wrong');
     }
-    // throw new Error('something wrong');
     return this.appService.getHello();
   }
 
-  @Get('currency/:currency')
-  getCurrency(@Param('currency', ValidationPipe) currency: string) {
+  @Get('dollarToRub/:dollar')
+  getRubs(@Param('dollar', ValidationPipe) currency: string) {
     return currency;
   }
 

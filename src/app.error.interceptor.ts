@@ -21,7 +21,7 @@ export class ErrorInterceptor implements NestInterceptor {
     context: ExecutionContext,
     next: CallHandler<any>,
   ): Observable<any> | Promise<Observable<any>> {
-    console.log('🚀 ErrorInterceptor:', {
+    console.log('Error ', {
       time: new Date(),
       handler: context.getHandler().name,
       class: context.getClass().name,
